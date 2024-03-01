@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="mr"> <!-- Set the language to Marathi -->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>मौसम जानकारी</title>
+</head>
+<body>
+  <h1>मौसम जानकारी</h1>
+  <label for="location">स्थान प्रविष्ट करा (शहर, देश): </label>
+  <input type="text" id="location" placeholder="उदा., मुंबई, भारत">
+  <button onclick="getWeather()">शोधा</button>
+  <div id="weatherResult"></div>
+
+  <script>
+    function getWeather() {
+      const locationInput = document.getElementById('location');
+      const location = locationInput.value;
+
+      fetch('https://api.openweathermap.org/data/2.5/weather?q=${location}&lang=mr&appid=e04f62a06219c9031b62887af46c0b00')
+        .then(response => response.json())
+        .then(data => {
+          const weatherResult = document.getElementById('weatherResult');
+          weatherResult.innerHTML = `
+            <p>स्थान: ${data.name}, ${data.sys.country}</p>
+            <p>तापमान: ${data.main.temp} &deg;C</p>
+            <p>मौसम: ${data.weather[0].description}</p>
+            <p>आचारधर्म: ${data.weather[0].main}</p>
+            <p>आचारधर्म वर्णन: ${data.weather[0].description}</p>
+            <p>ओसाधर्म: ${data.main.humidity}%</p>
+            <p>हवामान: ${data.wind.speed} m/s</p>
+          `;
+        })
+        .catch(error => {
+          console.error('मौसम डेटा आपलोड करताना त्रुटी:', error);
+        });
+    }
+  </script>
+</body>
+</html>

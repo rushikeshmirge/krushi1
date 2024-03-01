@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden; /* Ensure the video doesn't overflow the viewport */
+    }
+
+    video {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      z-index: -1;
+    }
+
+    .login-container {
+      background: rgba(120, 248, 120, 0.7); /* Semi-transparent white background */
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+      height: 350px;
+      width: 250px;
+    }
+
+    .login-form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    h2 {
+      color: #333;
+    }
+
+    label {
+      margin-top: 10px;
+      color: #333;
+    }
+
+    input {
+      padding: 10px;
+      margin: 5px 0 15px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      background-color: #fff;
+    color: #111111e8;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    margin-left: 56px;
+    margin-right: 56px;
+    cursor: pointer;
+    font-size: 1em;
+    }
+
+    button:hover {
+      background-color: #b3f5b6ca;
+    }
+  </style>
+</head>
+<body>
+  <video autoplay muted loop>
+    <source src="images/bg clip.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <div class="login-container">
+    <form class="login-form">
+      <h2>लॉगइन</h2>
+      <label for="नाव">नाव:</label>
+      <input type="text" id="नाव" name="नाव" required>
+
+      <label for="पासवर्ड">पासवर्ड:</label>
+      <input type="पासवर्ड" id="पासवर्ड" name="पासवर्ड" required>
+
+      <button type="submit">लॉगइन</button>
+    </form>
+  </div>
+</body>
+</html>
